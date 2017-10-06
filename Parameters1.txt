@@ -1,0 +1,254 @@
+//General and Environmental Parameters
+HDF5: 0
+
+Width: 1000
+Height: 1000
+ValueGrass: 350 		//250  M.M
+MaxGrass: 4000  		//1200 //8    M.M
+SpeedGrowGrass: 200 //210  // 270	//0.5  M.M
+ProbaInitialGrass: 0.13	// Initial Probability of Grass 
+ProbaGrowGrass: 0.035  //0.062 //0.028  //0.034 
+MaxMeat: 4000 1000   	//8 M.M MaxMeat=1000; WastedMeatPerGen = 300
+ProbaMut: .001 .002   // .005 .01  M.M => divided the old values by 10
+ProbaMutLow: .0005 .0015  // .001 .003  M.M => divided the old values by 10
+PercentMut: .15
+PercentMutHigh: .2
+RadiusCluster: 10		// Radius of each cluster (compactness) of initial population of Prey and Predator
+DistanceMin: 1
+MaxSave: 20			// 0-no save, #-save every # states
+MinSave: 0				// 0-no save, #-save stat every # states
+MinSave_Compressed: 1	// 0-no save, #-save stat every # states (compressed)
+WorldSave: 1			// 0-no save, 1-save world
+Tar_MinSaveWorld: 1		// 0-no tar, 1- tar 1000 MinSave & WorldSave in each folder to one file /M.M
+PerSpeciesPrey: 1		// If 1, in every generation per-species analyisis is done
+PerSpeciesPred: 1		// If 1, in every generation per-species analyisis is done
+Restore: 0				// 0-no restore, 1-restore
+MatingMode: 0				// 0-Random mate selection method, 1-Good gene mate selection method, 2-Intermediate/MRE
+IsWithoutPredator: 0			//without predator runs
+FertilizerDivideTo: 4		//divide sum of fertilizer to decrease its effect
+Visualizations: 0			// 0 means no visualizations, otherwise visualizations every this number of steps
+FluctuatingResources: 0		// 0 means maxGrass is constant, 1 means it fluctuates regularly
+FluctuationAmplitudeRatio: 0.2	// the amplitude of fluctuation as a ratio of maxGrass
+FluctuationMinimumRatio: 0.8	// the minimum of maxGrass... 2 * AmplitudeRatio + MinimumRatio = 1
+FluctuationCycle: 400			// how long a fluctuation cycle should take, in time-steps
+CircularFoodGrowth: 0			// 0 means grass grows normally, 1 means it grows in circular patches
+FoodCircleDiameter: 250			// diameter of the circular grass patches
+FoodCircleMaxRatio: 3			// the peak of maxGrass, as a ratio of maxGrass... determines essentially the area of the world that has maxGrass set to the real maximum
+FoodCircleMinimumRatio: 0.5		// between patches, what is the minimum value the grass can take, as a ratio of maxGrass
+Persuasion: 0					// 1 means allow males to be persuaded by females to choose reproduction, 0 means EcoSim behaves normally
+
+//Prey Parameters
+
+InitNbPrey: 80000    //000
+ValuePrey: 500
+AgeMaxPrey: 46
+EnergyMaxPrey: 2500
+SpeedMaxPrey: 6
+AgeReprodPrey: 6
+StateBirthPreyMale: 12    //25
+StateBirthPreyFemale: 16    //35
+VisionPrey: 8   //20 M.M
+PerClusterPrey: 200			// The number of Preys per each cluster
+DistanceSpeciesPrey: 16	//24.975 //49.95  //4.5  M.M   (364+5*8)/364 * 4.5*10
+
+//Predator Parameters
+
+InitNbPredator: 4000       //000
+AgeMaxPred: 50
+EnergyMaxPredator: 3000  //1000  M.M
+SpeedMaxPredator: 20
+AgeReprodPred: 5 		//8		M.M
+StateBirthPredMale: 14  	//40    M.M
+StateBirthPredFemale: 18  	//40    M.M
+VisionPredator: 20  	//25   M.M
+PerClusterPredator: 20		// The number of Preds per each cluster
+DistanceSpeciesPred: 16 //46 //92  //8.5  M.M
+
+//FCM Parameters for Prey
+
+nbSensPrey: 22
+nbConceptsPrey: 7
+nbMotorDepPrey: 4
+nbMotorFixPrey: 6 
+
+________________________________NodeName:	Fear	hunger	searchPartner	curiosity	sedentary	satisfaction	nuisance	escape	searchFood	socialize	exploration	wait	eat	reproduce	Move2StrongestPrey	Move2StrongestPreyCell	Move2WeakestPreyCell
+_______________________________PredClose:	4	0	0	0.1	0	-1	1	0	0	0	0	0	0	0	0	0	0
+_________________________________PredFar:	-4	0	0	0	0	.5	-.5	0	0	0	0	0	0	0	0	0	0
+_______________________________FoodClose:	0	.5	0	-.1	.1	.5	-.5	0	0	0	0	0	0	0	0	0	0
+_________________________________FoodFar:	0	0	-.4	.2	-.2	-.7	.7	0	0	0	0	0	0	0	0	0	0
+_____________________________FriendClose:	0	0	1	-.1	.5	.5	-.5	0	0	0	0	0	0	0	0	0	0
+_______________________________FriendFar:	0	0	-.4	.2	-.2	-.5	.5	0	0	0	0	0	0	0	0	0	0
+_______________________________EnergyLow:	.4	4	-1	0	0	-2.2	2.2	0	0	0	0	0	0	0	0	0	0
+______________________________EnergyHigh:	0	-4	2	.2	2	1.5	-1.5	0	0	0	0	0	0	0	0	0	0
+___________________________FoodLocalHigh:	0	.2	1	-.3	1	1.1	-1.1	0	0	0	0	0	2.6	0	0	0	0
+____________________________FoodLocalLow:	0	-.2	0	1	-1	-1.1	1.1	0	0	0	0	0	-4	0	0	0	0
+_________________________PartnerLocalYes:	0	0	5	-.4	4	2	-.5	0	0	0	0	0	0	1	0	0	0
+__________________________PartnerLocalNo:	0	0	-4	.3	-1	-4	.8	0	0	0	0	0	0	-5	0	0	0
+________________StrengthPreyCellLocalLow:	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+_______________StrengthPreyCellLocalHigh:	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+__________________________________AgeLow:	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+_________________________________AgeHigh:	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+____StrengthStrongestPreyCellDistanceLow:	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+___StrengthStrongestPreyCellDistanceHigh:	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+___________StrengthStrongestPreyLocalLow:	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+__________StrengthStrongestPreyLocalHigh:	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+_____________________________StrengthLow:	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+____________________________StrengthHigh:	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+____________________________________Fear:	.5	0	0	0	0	0	0	3.5	-.8	-1	.3	-1	-1	-1	-.25	-.25	-.25
+__________________________________Hunger:	0	.3	0	0	0	0	0	-.8	2.1	-.7	.7	-.5	3.5	-2	-.175	-.175	-.175
+___________________________SearchPartner:	0	0	.2	0	0	0	0	-.2	0	1.5	.5	-.3	-.4	4	.375	.375	.375
+_______________________________Curiosity:	0	0	0	.1	0	0	0	-.1	.5	1	1.5	-.2	-.3	-.2	.075	.075	.075
+_______________________________Sedentary:	0	0	0	0	.1	0	0	0	-.5	-.3	-1.2	.2	0	4	-.075	-.075	-.075
+____________________________Satisfaction:	0	0	0	0	0	0	0	-.1	-.8	-.2	-2	.5	.1	2	-.05	-.05	-.05
+________________________________Nuisance:	0	0	0	0	0	0	0	.4	1	.2	2	-1.2	-.7	-.7	.05	.05	.05
+__________________________________Escape:	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+______________________________SearchFood:	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+_______________________________Socialize:	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+_____________________________Exploration:	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+____________________________________Wait:	0	0	0	0	0	0	0	0	0	0	0	.2	0	0	0	0	0
+_____________________________________Eat:	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+_______________________________Reproduce:	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+______________________Move2StrongestPrey:	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+__________________Move2StrongestPreyCell:	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+____________________Move2WeakestPreyCell:	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+
+______________________________NodeName:	Activation FuzzyParameter1 FuzzyParameter2
+_____________________________PredClose:	0	3.5	3.5
+_______________________________PredFar:	0	3.5	3.5
+_____________________________FoodClose:	0	6	6
+_______________________________FoodFar:	0	6	6
+___________________________FriendClose:	0	5	5
+_____________________________FriendFar:	0	5	5
+_____________________________EnergyLow:	0	4	4	
+____________________________EnergyHigh:	0	4	4
+_________________________FoodLocalHigh:	0	4	4
+__________________________FoodLocalLow:	0	4	4
+_______________________PartnerLocalYes:	0	1	4
+________________________PartnerLocalNo:	0	1	4
+______________StrengthPreyCellLocalLow:	0	66	19425
+_____________StrengthPreyCellLocalHigh:	0	66	19425
+________________________________AgeLow:	0	1	46
+_______________________________AgeHigh:	0	1	46
+__StrengthStrongestPreyCellDistanceLow:	0	66	19425
+_StrengthStrongestPreyCellDistanceHigh:	0	66	19425
+_________StrengthStrongestPreyLocalLow:	0	66	6475
+________StrengthStrongestPreyLocalHigh:	0	66	6475
+___________________________StrengthLow:	0	66	6475
+__________________________StrengthHigh:	0	66	6475
+
+_______________NodeName:	Activation FuzzyParameter1 FuzzyParameter2  FuzzyParameter3 
+___________________Fear:	0	0	0	3.5
+_________________Hunger:	0	0	0	3
+__________SearchPartner:	0	0	0	3
+______________Curiosity:	0	0	0	2.5
+______________Sedentary:	0	0	0	2.5
+___________Satisfaction:	0	0	0	3
+_______________Nuisance:	0	0	0	3
+_________________Escape:	0	0	0	3.5
+_____________SearchFood:	0	0	0	3
+______________Socialize:	0	0	0	3
+____________Exploration:	0	0	0	2.5
+___________________Wait:	0	0	0	3
+____________________Eat:	0	0	0	3.5
+______________Reproduce:	0	0	0	3.5
+_____Move2StrongestPrey:	0	0	0	2.9
+_Move2StrongestPreyCell:	0	0	0	2.9
+___Move2WeakestPreyCell:	0	0	0	2.9
+
+//FCM Parameters for Predator
+
+nbSensPredator: 24
+nbConceptsPredator: 7
+nbMotorDepPredator: 4
+nbMotorFixPredator: 7
+
+________________________________NodeName:	chaseAway	hunger	searchPartner	curiosity	sedentary	satisfaction	nuisance	searchPrey	searchFood	socialize	exploration	wait	eat	reproduce	Move2StrongestPredator	Move2StrongestPreyDistance	Move2WeakestPreyCell	Move2WeakestPrey
+_______________________________PreyClose:	1.2	.2	0	-.1	0	.5	-.5	0	0	0	0	0	0	0	0	0	0	0
+_________________________________PreyFar:	-.5	-.7	0.1	.4	-.4	-.5	.5	0	0	0	0	0	0	0	0	0	0	0
+_______________________________FoodClose:	.2	.7	0	-.1	.1	.5	-.5	0	0	0	0	0	0	0	0	0	0	0
+_________________________________FoodFar:	.3	-.7	0.1	.2	-.2	-.6	.6	0	0	0	0	0	0	0	0	0	0	0
+_____________________________FriendClose:	0	0	.7	0	0	.8	-.8	0	0	0	0	0	0	0	0	0	0	0
+_______________________________FriendFar:	0	0	.7	2	-.3	-.4	1.4	0	0	0	0	0	0	0	0	0	0	0
+_______________________________EnergyLow:	4.5	3.2	-1.3	0	-.2	-1.5	1.5	0	0	0	0	0	0	0	0	0	0	0
+______________________________EnergyHigh:	-6	-5	2.4	.3	2	2	-1	0	0	0	0	0	0	0	0	0	0	0
+___________________________FoodLocalHigh:	-1.5	0.3	1	-.3	2	1	-1	0	0	0	0	0	0	0	0	0	0	0
+____________________________FoodLocalLow:	1.7	0	0	1	-1	-1	1	0	0	0	0	0	0	0	0	0	0	0
+_________________________PartnerLocalYes:	-.3	0	5	-.4	5	.8	-1.8	0	0	0	0	0	0	3.5	0	0	0	0
+__________________________PartnerLocalNo:	.3	0	-3	1	-4	-.8	1.8	0	0	0	0	0	0	-5	0	0	0	0
+________________StrengthPreyCellLocalLow:	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+_______________StrengthPreyCellLocalHigh:	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+__________________________________AgeLow:	-.5	1.5	0	0	0	0	-1	0	0	0	0	0	0	0	0	0	0	0
+_________________________________AgeHigh:	.2	-3	2	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0
+____StrengthStrongestPreyCellDistanceLow:	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+___StrengthStrongestPreyCellDistanceHigh:	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+___________StrengthStrongestPreyLocalLow:	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+__________StrengthStrongestPreyLocalHigh:	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+___________StrengthStrongestPredLocalLow:	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+__________StrengthStrongestPredLocalHigh:	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+_____________________________StrengthLow:	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+____________________________StrengthHigh:	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+_______________________________ChaseAway:	0	0	0	0	0	0	0	1.4	-.5	-.8	-.1	-.4	-2	-.4	-.35	.25	.25	.25
+__________________________________Hunger:	0	0	0	0	0	0	0	.8	.4	-1.4	-.1	-.4	2.5	-.2	-.65	.1	.1	.1
+___________________________SearchPartner:	0	0	.2	0	0	0	0	-.4	-.6	.1	-.1	-.5	-.8	4.5	.05	-.4	-.4	-.4
+_______________________________Curiosity:	0	0	0	.1	0	0	0	.2	.3	.3	.4	-.4	-.3	-.2	.1	.05	.05	.05
+_______________________________Sedentary:	0	0	0	0	.1	0	0	-.2	-.5	-.8	-1.5	.2	0	2	-.35	-.2	-.2	-.2
+____________________________Satisfaction:	0	0	0	0	0	0	0	-.3	-.4	.1	-2	.3	-.9	1.2	.025	-.3	-.3	-.3
+________________________________Nuisance:	0	0	0	0	0	0	0	-1.2	.5	.6	.4	-.5	-.3	-.4	.2	-1.2	-1.2	-1.2
+______________________________SearchPrey:	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+______________________________SearchFood:	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+_______________________________Socialize:	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+_____________________________Exploration:	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+____________________________________Wait:	0	0	0	0	0	0	0	0	0	0	0	.2	0	0	0	0	0	0
+_____________________________________Eat:	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+_______________________________Reproduce:	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+__________________Move2StrongestPredator:	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+______________Move2StrongestPreyDistance:	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+____________________Move2WeakestPreyCell:	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+________________________Move2WeakestPrey:	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+
+________________________________NodeName:	Activation FuzzyParameter1 FuzzyParameter2
+_______________________________PreyClose:	0	4	4
+_________________________________PreyFar:	0	4	4
+_______________________________FoodClose:	0	5	5
+_________________________________FoodFar:	0	5	5
+_____________________________FriendClose:	0	5	5
+_______________________________FriendFar:	0	5	5
+_______________________________EnergyLow:	0	3.1	3.5	
+______________________________EnergyHigh:	0	3.1	3.5
+___________________________FoodLocalHigh:	0	1000	20
+____________________________FoodLocalLow:	0	1000	20
+_________________________PartnerLocalYes:	0	1	4
+__________________________PartnerLocalNo:	0	1	4
+________________StrengthPreyCellLocalLow:	0	66	19425
+_______________StrengthPreyCellLocalHigh:	0	66	19425
+__________________________________AgeLow:	0	1	42
+_________________________________AgeHigh:	0	1	42
+____StrengthStrongestPreyCellDistanceLow:	0	66	19425
+___StrengthStrongestPreyCellDistanceHigh:	0	66	19425
+___________StrengthStrongestPreyLocalLow:	0	66	6475
+__________StrengthStrongestPreyLocalHigh:	0	66	6475
+___________StrengthStrongestPredLocalLow:	0	66	6475
+__________StrengthStrongestPredLocalHigh:	0	66	6475
+_____________________________StrengthLow:	0	66	6475
+____________________________StrengthHigh:	0	66	6475
+
+________________________________NodeName:	Activation FuzzyParameter1 FuzzyParameter2  FuzzyParameter3 
+_______________________________ChaseAway:	0	0	0	3
+__________________________________Hunger:	0	0	0	3.5
+___________________________SearchPartner:	0	0	0	3
+_______________________________Curiosity:	0	0	0	2.5
+_______________________________Sedentary:	0	0	0	2.5
+____________________________Satisfaction:	0	0	0	3
+________________________________Nuisance:	0	0	0	3
+____________________________________Hunt:	0	0	0	3
+______________________________SearchFood:	0	0	0	3.5
+_______________________________Socialize:	0	0	0	3
+_____________________________Exploration:	0	0	0	2.5
+____________________________________Wait:	0	0	0	3
+_____________________________________Eat:	0	0	0	3.5
+_______________________________Reproduce:	0	0	0	3.5
+__________________Move2StrongestPredator:	0	0	0	2.9
+______________Move2StrongestPreyDistance:	0	0	0	2.9
+____________________Move2WeakestPreyCell:	0	0	0	2.9
+________________________Move2WeakestPrey:	0	0	0	2.9
+
