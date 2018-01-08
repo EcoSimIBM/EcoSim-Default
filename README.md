@@ -14,4 +14,4 @@ To continue an EcoSim run, do the following:
 3. -if EcoSim is built, ./EcoSim with then run EcoSim, continuing the run at the restore point held in the MaxSave
 4. -otherwise, type "make" and hit enter, which builds EcoSim using the file "makefile" and subsequently run EcoSim with ./EcoSim
 
-Refer to "EcoSim ODD.doc" for a full explanation of EcoSim according to the "Overview, Design concepts, and Details" protocol of Grimm et al. (2006) which was updated in 2010.
+Refer to "EcoSim ODD.docx" for a full explanation of EcoSim according to the "Overview, Design concepts, and Details" protocol of Grimm et al. (2006) which was updated in 2010.
